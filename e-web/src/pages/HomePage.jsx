@@ -6,9 +6,11 @@ export function HomePage(){
         <>
             <title>Ecommerce Project</title>
              <Header />
+              <div className="home-page">
+                 <div className="products-grid">
              {products.map((product)=>{
                 return(
-                    <div key={product.id} className="product-container">
+                    <div key = {product.id} className="product-container">
                 <div className="product-image-container">
                     <img className="product-image"
                     src={product.image} />
@@ -22,12 +24,12 @@ export function HomePage(){
                     <img className="product-rating-stars"
                     src="images/ratings/rating-45.png" />
                     <div className="product-rating-count link-primary">
-                    87
+                    {product.rating.count}
                     </div>
                 </div>
 
                 <div className="product-price">
-                   {product.priceCents}
+                    {product.priceCents}
                 </div>
 
                 <div className="product-quantity-container">
@@ -58,8 +60,8 @@ export function HomePage(){
                 </div>
                 )
              })}
-            <div className="home-page">
-            <div className="products-grid">
+           
+           
                 <div className="product-container">
                 <div className="product-image-container">
                     <img className="product-image"
