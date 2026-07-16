@@ -27,7 +27,7 @@ export function HomePage(){
                 </div>
 
                 <div className="product-price">
-                    $10.90
+                   {product.priceCents}
                 </div>
 
                 <div className="product-quantity-container">
