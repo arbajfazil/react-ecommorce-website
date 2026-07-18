@@ -1,7 +1,24 @@
 import './HomePage.css'
-import { products } from '../../starting-code/data/products'
+import axios from 'axios';
+import { useEffect,useState } from 'react';
+
 import { Header } from '../components/Header'
 export function HomePage(){
+    const [products,setProduct] = useState([]);
+    useEffect(()=>{
+
+            axios.get('http://localhost:3000/api/products')
+            .then((response)=>{
+           setProduct(response.data)
+        })
+
+        axios.get('http://localhost:3000/api/cart-items')
+        .then((response)=>{
+            console.log(response.data)
+        })
+    },[])
+
+    
     return(
         <>
             <title>Ecommerce Project</title>
