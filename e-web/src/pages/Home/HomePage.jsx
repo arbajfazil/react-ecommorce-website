@@ -4,12 +4,12 @@ import axios from 'axios';
 import { useEffect,useState } from 'react';
 
 import { Header } from '../../components/Header'
-export function HomePage({cart}){
+export function HomePage({cart,loadCart}){
     const [products,setProduct] = useState([]);
     
     useEffect(()=>{
         const getHomeData = async ()=>{
-        const response =  await axios.get('api/products')
+        const response =  await axios.get('/api/products')
              setProduct(response.data)
         }
         
@@ -23,7 +23,7 @@ export function HomePage({cart}){
             <title>Ecommerce Project</title>
              <Header cart = {cart}/>
               <div className="home-page">
-                <ProductsGrid products={products} />
+                <ProductsGrid products={products} loadCart={loadCart}/>
             </div>
         </>
     )
