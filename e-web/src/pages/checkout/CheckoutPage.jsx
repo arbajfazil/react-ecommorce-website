@@ -16,10 +16,7 @@ export function CheckoutPage({cart , loadCart}){
         response = await axios.get('/api/payment-summary')
             setPaymentSummary(response.data)
         }
-
         fetchCheckoutData();
-
-
     },[cart])
     return(
         <>
@@ -32,7 +29,7 @@ export function CheckoutPage({cart , loadCart}){
         <div className="checkout-grid">
             <OrderSummary cart={cart} deliveryOptions={deliveryOptions} loadCart={loadCart}/>
 
-            <PaymentSummary paymentSummary={paymentSummary} />
+            <PaymentSummary paymentSummary={paymentSummary} loadCart={loadCart}/>
             
         </div>
             </div>
